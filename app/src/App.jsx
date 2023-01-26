@@ -18,7 +18,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    GetData(`${url}/${option}`);
+    GetData(`${url}?value=${option}`);
   }, [option]);
 
   return (

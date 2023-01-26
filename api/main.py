@@ -16,66 +16,64 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/common")
-def index():
-    return {
+@app.get('/')
+def index(value: str):
+  match value:
+    case 'common':
+      return {
         "name": "共通",
         "items": [
-            {
-                "name": "GitHub",
-                "url":"https://github.com/RonwareJP",
-                "img_url":"https://cdn-icons-png.flaticon.com/512/25/25231.png"
-            },
-            {
-                "name": "GitHub",
-                "url":"https://github.com/RonwareJP",
-            },
-            {
-                "name": "GitHub",
-                "url":"https://github.com/RonwareJP"
-            }
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP",
+            "img_url":"https://cdn-icons-png.flaticon.com/512/25/25231.png"
+          },
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP",
+          },
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP"
+          }
         ]
-    }
-
-
-@app.get("/engineering_department")
-def index():
-    return {
+      }
+    
+    case 'engineering_department':
+      return {
         "name": "技術部門",
-    "items": [
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP",
-      },
-      {
-        "name": "exciroute",
-        "url":"https://exciroute.com/",
-        "img_url":""
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
+        "items": [
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP",
+          },
+          {
+            "name": "exciroute",
+            "url":"https://exciroute.com/",
+            "img_url":""
+          },
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP"
+          }
+        ]
       }
-    ]
-    }
-
-@app.get("/planning_department")
-def index():
-    return {
+    
+    case 'planning_department':
+      return {
         "name": "企画部門",
-    "items": [
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
+        "items": [
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP"
+          },
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP"
+          },
+          {
+            "name": "GitHub",
+            "url":"https://github.com/RonwareJP"
+          }
+        ]
       }
-    ]
-  }
-
