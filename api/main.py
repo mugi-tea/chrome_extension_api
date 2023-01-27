@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import json
 
 app = FastAPI()
 
@@ -16,62 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-settings = {
-  "common": {
-    "name":"共通",
-    "items":[
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP",
-        "img_url":"https://cdn-icons-png.flaticon.com/512/25/25231.png"
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP",
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      }
-    ]
-  },
-  "engineering_department": {
-    "name":"技術部門",
-    "items": [
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP",
-      },
-      {
-        "name": "exciroute",
-        "url":"https://exciroute.com/",
-        "img_url":""
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      }
-    ]
-  },
-  "planning_department": {
-    "name": "企画部門",
-    "items": [
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      },
-      {
-        "name": "GitHub",
-        "url":"https://github.com/RonwareJP"
-      }
-    ]
-  }
-}
-
+settings = json.load(open('settings.json', encoding='utf-8'))
 
 @app.get("/")
 def index(value: str):
