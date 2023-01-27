@@ -78,13 +78,10 @@ def index(value: str):
   match value:
     case "":
       return settings
-
-    case "common":
-      return settings["common"]
     
     case "engineering_department":
-      return settings["engineering_department"]
+      return settings["common"], settings["engineering_department"]
     
     case "planning_department":
-      return settings["planning_department"]
+      return settings["common"], settings["planning_department"]
       
